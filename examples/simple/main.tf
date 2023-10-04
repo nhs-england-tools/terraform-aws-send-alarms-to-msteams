@@ -6,6 +6,9 @@ module "alarm_module" {
   cloudwatch_retention_in_days     = 7
 }
 
+resource "random_pet" "this" {
+  length = 2
+}
 
 resource "aws_budgets_budget" "budget" {
   name         = "monthly-budget"
