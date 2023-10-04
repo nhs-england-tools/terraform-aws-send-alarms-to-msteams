@@ -1,8 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
+
 # Terraform AWS Send Alarms to Msteams
+
 This module provides the the infrastructure to send Budget and Cloudwatch alarms to msteams.
 
-# Example Usage:
+# Example Usage
 
 ```hcl
 module "alarm_module" {
@@ -60,9 +62,11 @@ resource "aws_cloudwatch_metric_alarm" "validation_lambda_failed_alarm" {
 | <a name="input_msteams_webhook_budget_alarm"></a> [msteams\_webhook\_budget\_alarm](#input\_msteams\_webhook\_budget\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
 | <a name="input_msteams_webhook_cloudwatch_alarm"></a> [msteams\_webhook\_cloudwatch\_alarm](#input\_msteams\_webhook\_cloudwatch\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The name you want the resources to be prefixed with, for example dev, test, prod | `string` | `"dev"` | no |
+
 ## Modules
 
 No modules.
+
 ## Outputs
 
 | Name | Description |
@@ -70,6 +74,7 @@ No modules.
 | <a name="output_budget_alarm_topic_arn"></a> [budget\_alarm\_topic\_arn](#output\_budget\_alarm\_topic\_arn) | The budget alarm topic arn. Subscribe your budget alarms to this topic |
 | <a name="output_cloudwatch_alarm_topic_arn"></a> [cloudwatch\_alarm\_topic\_arn](#output\_cloudwatch\_alarm\_topic\_arn) | The cloudwatch alarm topic arn. Subscribe your cloudwatch alarms to this topic |
 | <a name="output_msteams_lambda_function_name"></a> [msteams\_lambda\_function\_name](#output\_msteams\_lambda\_function\_name) | n/a |
+
 ## Providers
 
 | Name | Version |
@@ -77,6 +82,7 @@ No modules.
 | <a name="provider_archive"></a> [archive](#provider\_archive) | ~> 2.3 |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.63 |
 | <a name="provider_null"></a> [null](#provider\_null) | ~> 3.2 |
+
 ## Requirements
 
 | Name | Version |
@@ -85,6 +91,7 @@ No modules.
 | <a name="requirement_archive"></a> [archive](#requirement\_archive) | ~> 2.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.63 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | ~> 3.2 |
+
 ## Resources
 
 | Name | Type |
@@ -114,4 +121,5 @@ No modules.
 | [aws_iam_policy_document.function_logging_policy_document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.sns_budget_alerts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.ssm_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+
 <!-- END_TF_DOCS -->

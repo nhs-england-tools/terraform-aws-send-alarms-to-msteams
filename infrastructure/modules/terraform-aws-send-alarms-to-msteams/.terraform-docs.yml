@@ -15,19 +15,25 @@ sections:
 
 content: |-
   # Terraform AWS Send Alarms to Msteams
+
   This module provides the the infrastructure to send Budget and Cloudwatch alarms to msteams. 
 
-  # Example Usage:
+  # Example Usage
 
   ```hcl
   {{ include "example/main.tf" }}
   ```
 
   {{ .Inputs }}
+
   {{ .Modules }}
+
   {{ .Outputs }}
+
   {{ .Providers }}
+
   {{ .Requirements }}
+
   {{ .Resources }}
 
 output:
@@ -35,7 +41,9 @@ output:
   mode: inject
   template: |-
     <!-- BEGIN_TF_DOCS -->
+
     {{ .Content }}
+
     <!-- END_TF_DOCS -->
 
 output-values:

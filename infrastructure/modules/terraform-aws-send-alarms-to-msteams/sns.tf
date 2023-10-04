@@ -2,7 +2,7 @@
 #### Budget Alarm SNS ####
 ##########################
 resource "aws_sns_topic" "budget_alarm_topic" {
-  name              = "${var.prefix}-budget-alarm-topic"
+  name = "${var.prefix}-budget-alarm-topic"
 }
 
 resource "aws_lambda_permission" "invoke_lambda_permissions_budget_alarm_topic" {
@@ -45,7 +45,7 @@ data "aws_iam_policy_document" "sns_budget_alerts" {
 ## CloudWatch Alarm SNS ##
 ##########################
 resource "aws_sns_topic" "cloudwatch_alarm_topic" {
-  name              = "${var.prefix}-cloudwatch-alarm-topic"
+  name = "${var.prefix}-cloudwatch-alarm-topic"
 }
 
 resource "aws_lambda_permission" "invoke_lambda_permissions_cloudwatch_alarm_topic" {
