@@ -24,7 +24,7 @@ This example may create resources which cost money. Run ```terraform destroy``` 
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alarm_module"></a> [alarm\_module](#module\_alarm\_module) | ../../cloudwatch_alarms_to_msteams_module | n/a |
+| <a name="module_alarm_module"></a> [alarm\_module](#module\_alarm\_module) | ../../ | n/a |
 
 ## Outputs
 
@@ -52,7 +52,7 @@ No outputs.
 | Name | Type |
 |------|------|
 | [aws_budgets_budget.budget](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/budgets_budget) | resource |
-| [aws_cloudwatch_metric_alarm.validation_lambda_failed_alarm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.concurrent_lambdas](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 | [random_pet.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
 
 <!-- END_TF_DOCS -->

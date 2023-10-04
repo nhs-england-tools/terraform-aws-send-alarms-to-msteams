@@ -1,18 +1,22 @@
 <!-- BEGIN_TF_DOCS -->
 
-# Terraform AWS Send Alarms to Msteams
+# Terraform AWS Send Alarms to msteams
 
 This module provides the the infrastructure to send Budget and Cloudwatch alarms to msteams.
 
 # Example Usage
 
 ```hcl
+provider "aws" {
+  region = "eu-west-2"
+}
+
 resource "random_pet" "this" {
   length = 2
 }
 
 module "alarm_module" {
-  source                           = "../../cloudwatch_alarms_to_msteams_module"
+  source                           = "../../"
   prefix                           = random_pet.this.id
   msteams_webhook_budget_alarm     = var.MS_TEAMS_WEB_HOOK
   msteams_webhook_cloudwatch_alarm = var.MS_TEAMS_WEB_HOOK
@@ -37,8 +41,8 @@ resource "aws_budgets_budget" "budget" {
   }
 }
 
-resource "aws_cloudwatch_metric_alarm" "validation_lambda_failed_alarm" {
-  alarm_name          = "${random_pet.this.id}-lambda-failure-alarm"
+resource "aws_cloudwatch_metric_alarm" "concurrent_lambdas" {
+  alarm_name          = "${random_pet.this.id}-concurrent-lambdas-alarm"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = "1"
   metric_name         = "ConcurrentExecutions"
@@ -65,7 +69,7 @@ This example may create resources which cost money. Run ```terraform destroy``` 
 | <a name="input_lambda_timeout"></a> [lambda\_timeout](#input\_lambda\_timeout) | The time in seconds the lambda function is allowed to run before it times out | `number` | `"60"` | no |
 | <a name="input_msteams_webhook_budget_alarm"></a> [msteams\_webhook\_budget\_alarm](#input\_msteams\_webhook\_budget\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
 | <a name="input_msteams_webhook_cloudwatch_alarm"></a> [msteams\_webhook\_cloudwatch\_alarm](#input\_msteams\_webhook\_cloudwatch\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | The name you want the resources to be prefixed with, for example dev, test, prod | `string` | `"dev"` | no |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | The name you want the resources to be prefixed with, for example dev, test, prod | `string` | n/a | yes |
 
 ## Modules
 
@@ -105,7 +109,7 @@ No modules.
 | [aws_iam_policy.function_logging_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.ssm_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_role.iam_for_lambda](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
-| [aws_iam_role_policy_attachment.function_logging_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_iam_role_policy_attachment.function_ssm_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.ssm_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_lambda_function.lambda_function](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
 | [aws_lambda_layer_version.python_dependencies_layer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_layer_version) | resource |

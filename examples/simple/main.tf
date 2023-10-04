@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "eu-west-2"
+}
+
 resource "random_pet" "this" {
   length = 2
 }
