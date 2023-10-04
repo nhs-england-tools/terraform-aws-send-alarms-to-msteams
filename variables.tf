@@ -1,6 +1,5 @@
 variable "prefix" {
   description = "The name you want the resources to be prefixed with, for example dev, test, prod"
-  default     = "dev" # TODO: remove default
   type        = string
 }
 

@@ -14,14 +14,16 @@ sections:
   show: []
 
 content: |-
-  # Terraform AWS Send Alarms to msteams
+  # Simple example
 
-  This module provides the the infrastructure to send Budget and Cloudwatch alarms to msteams. 
+  This Examples crates a budget and cloudwatch alarm and allows them to publish to the sns topics created by the```terraform-aws-send-alarms-to-msteams``` module.
 
   # Example Usage
 
-  ```hcl
-  {{ include "examples/simple/main.tf" }}
+  ```shell
+  terraform init
+  terraform plan
+  terraform apply
   ```
 
   This example may create resources which cost money. Run ```terraform destroy``` when you don't need the resources.
