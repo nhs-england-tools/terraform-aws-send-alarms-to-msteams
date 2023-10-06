@@ -12,4 +12,5 @@
 
 # Please, add your custom content below!
 .devcontainer
+scripts/install-dependencies.sh
 trim.md
