@@ -1,4 +1,4 @@
 aws-lambda-powertools==2.25.1
-boto3==1.28.54
+boto3==1.28.60
 spine-aws-common==0.2.13
 requests==2.31.0
