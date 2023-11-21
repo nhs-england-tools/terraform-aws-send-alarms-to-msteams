@@ -16,11 +16,13 @@ resource "random_pet" "this" {
 }
 
 module "alarm_module" {
-  source                           = "../../"
-  prefix                           = random_pet.this.id
-  msteams_webhook_budget_alarm     = var.MS_TEAMS_WEB_HOOK
-  msteams_webhook_cloudwatch_alarm = var.MS_TEAMS_WEB_HOOK
-  cloudwatch_retention_in_days     = 7
+  source                                     = "../../"
+  prefix                                     = random_pet.this.id
+  msteams_webhook_budget_alarm               = var.MS_TEAMS_WEB_HOOK
+  msteams_webhook_cloudwatch_alarm           = var.MS_TEAMS_WEB_HOOK
+  cloudwatch_retention_in_days               = 7
+  overwrite_msteams_webhook_budget_alarm     = true
+  overwrite_msteams_webhook_cloudwatch_alarm = true
 }
 
 resource "aws_budgets_budget" "budget" {
@@ -69,6 +71,8 @@ This example may create resources which cost money. Run ```terraform destroy``` 
 | <a name="input_lambda_timeout"></a> [lambda\_timeout](#input\_lambda\_timeout) | The time in seconds the lambda function is allowed to run before it times out | `number` | `"60"` | no |
 | <a name="input_msteams_webhook_budget_alarm"></a> [msteams\_webhook\_budget\_alarm](#input\_msteams\_webhook\_budget\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
 | <a name="input_msteams_webhook_cloudwatch_alarm"></a> [msteams\_webhook\_cloudwatch\_alarm](#input\_msteams\_webhook\_cloudwatch\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
+| <a name="input_overwrite_msteams_webhook_budget_alarm"></a> [overwrite\_msteams\_webhook\_budget\_alarm](#input\_overwrite\_msteams\_webhook\_budget\_alarm) | True to ensure that ssm parameter is always overwritten with the given webhook input | `bool` | n/a | yes |
+| <a name="input_overwrite_msteams_webhook_cloudwatch_alarm"></a> [overwrite\_msteams\_webhook\_cloudwatch\_alarm](#input\_overwrite\_msteams\_webhook\_cloudwatch\_alarm) | True to ensure that ssm parameter is always overwritten with the given webhook input | `bool` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The name you want the resources to be prefixed with, for example dev, test, prod | `string` | n/a | yes |
 
 ## Modules
