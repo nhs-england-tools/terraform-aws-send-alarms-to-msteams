@@ -33,12 +33,12 @@ variable "cloudwatch_retention_in_days" {
   description = "The number of days cloudwatch logs should be kept"
 }
 
-variable "overwrite_msteams_webhook_budget_alarm" {
+variable "msteams_webhook_cloudwatch_ssm_lifecycle_ignore_changes_value" {
   type        = bool
-  description = "True to ensure that ssm parameter is always overwritten with the given webhook input"
+  description = "True to set the lifecycle {ignore = [value]}, e.i. the ssm parameter will not be overwritten on deploy"
 }
 
-variable "overwrite_msteams_webhook_cloudwatch_alarm" {
+variable "msteams_webhook_budget_ssm_lifecycle_ignore_changes_value" {
   type        = bool
-  description = "True to ensure that ssm parameter is always overwritten with the given webhook input"
+  description = "True to set the lifecycle {ignore = [value]}, e.i. the ssm parameter will not be overwritten on deploy"
 }
