@@ -44,8 +44,8 @@ resource "aws_lambda_function" "lambda_function" {
     variables = {
       BUDGET_SNS_TOPIC_ARN        = aws_sns_topic.budget_alarm_topic.arn
       CLOUDWATCH_SNS_TOPIC_ARN    = aws_sns_topic.cloudwatch_alarm_topic.arn
-      BUDGET_WEBHOOK_SSM_NAME     = aws_ssm_parameter.budget_webhook.name
-      CLOUDWATCH_WEBHOOK_SSM_NAME = aws_ssm_parameter.cloudwatch_webhook.name
+      BUDGET_WEBHOOK_SSM_NAME     = local.ssm_budget_webhook_name
+      CLOUDWATCH_WEBHOOK_SSM_NAME = local.ssm_cloudwatch_webhook_name
     }
   }
 

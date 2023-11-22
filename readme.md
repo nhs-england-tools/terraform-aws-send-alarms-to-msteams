@@ -70,9 +70,9 @@ This example may create resources which cost money. Run ```terraform destroy``` 
 | <a name="input_lambda_reserved_concurrency"></a> [lambda\_reserved\_concurrency](#input\_lambda\_reserved\_concurrency) | Reserved concurrency is the maximum number of concurrent instances you want to allocate to your function. When a function has reserved concurrency, no other function can use that concurrency | `number` | `1` | no |
 | <a name="input_lambda_timeout"></a> [lambda\_timeout](#input\_lambda\_timeout) | The time in seconds the lambda function is allowed to run before it times out | `number` | `"60"` | no |
 | <a name="input_msteams_webhook_budget_alarm"></a> [msteams\_webhook\_budget\_alarm](#input\_msteams\_webhook\_budget\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
+| <a name="input_msteams_webhook_budget_ssm_lifecycle_ignore_changes_value"></a> [msteams\_webhook\_budget\_ssm\_lifecycle\_ignore\_changes\_value](#input\_msteams\_webhook\_budget\_ssm\_lifecycle\_ignore\_changes\_value) | True to set the lifecycle {ignore = [value]}, e.i. the ssm parameter will not be overwritten on deploy | `bool` | n/a | yes |
 | <a name="input_msteams_webhook_cloudwatch_alarm"></a> [msteams\_webhook\_cloudwatch\_alarm](#input\_msteams\_webhook\_cloudwatch\_alarm) | The microsoft teams webhook | `string` | n/a | yes |
-| <a name="input_overwrite_msteams_webhook_budget_alarm"></a> [overwrite\_msteams\_webhook\_budget\_alarm](#input\_overwrite\_msteams\_webhook\_budget\_alarm) | True to ensure that ssm parameter is always overwritten with the given webhook input | `bool` | n/a | yes |
-| <a name="input_overwrite_msteams_webhook_cloudwatch_alarm"></a> [overwrite\_msteams\_webhook\_cloudwatch\_alarm](#input\_overwrite\_msteams\_webhook\_cloudwatch\_alarm) | True to ensure that ssm parameter is always overwritten with the given webhook input | `bool` | n/a | yes |
+| <a name="input_msteams_webhook_cloudwatch_ssm_lifecycle_ignore_changes_value"></a> [msteams\_webhook\_cloudwatch\_ssm\_lifecycle\_ignore\_changes\_value](#input\_msteams\_webhook\_cloudwatch\_ssm\_lifecycle\_ignore\_changes\_value) | True to set the lifecycle {ignore = [value]}, e.i. the ssm parameter will not be overwritten on deploy | `bool` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The name you want the resources to be prefixed with, for example dev, test, prod | `string` | n/a | yes |
 
 ## Modules
@@ -125,7 +125,9 @@ No modules.
 | [aws_sns_topic_subscription.subscribe_lambda_to_budget_alarm_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
 | [aws_sns_topic_subscription.subscribe_lambda_to_cloudwatch_alarm_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
 | [aws_ssm_parameter.budget_webhook](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.budget_webhook_lifecycle_ignore_changes_value](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_ssm_parameter.cloudwatch_webhook](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_ssm_parameter.cloudwatch_webhook_lifecycle_ignore_changes_value](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [null_resource.pip_install](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [archive_file.lambda_function](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) | data source |
 | [archive_file.layer](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) | data source |
