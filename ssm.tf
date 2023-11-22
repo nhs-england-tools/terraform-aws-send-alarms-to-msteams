@@ -5,7 +5,7 @@ resource "aws_ssm_parameter" "budget_webhook" {
   type      = "SecureString"
   value     = var.msteams_webhook_budget_alarm
   key_id    = "alias/aws/ssm"
-  overwrite = var.overwrite_msteams_webhook_budget_alarm
+  overwrite = true
 }
 
 resource "aws_ssm_parameter" "budget_webhook_ifecycle_ignore_changes_value" {
@@ -14,7 +14,7 @@ resource "aws_ssm_parameter" "budget_webhook_ifecycle_ignore_changes_value" {
   type      = "SecureString"
   value     = var.msteams_webhook_budget_alarm
   key_id    = "alias/aws/ssm"
-  overwrite = var.overwrite_msteams_webhook_budget_alarm
+  overwrite = true
 
   lifecycle {
     ignore_changes = [value]
@@ -28,7 +28,7 @@ resource "aws_ssm_parameter" "cloudwatch_webhook" {
   type      = "SecureString"
   value     = var.msteams_webhook_cloudwatch_alarm
   key_id    = "alias/aws/ssm"
-  overwrite = var.overwrite_msteams_webhook_cloudwatch_alarm
+  overwrite = true
 }
 
 resource "aws_ssm_parameter" "cloudwatch_webhook_Zifecycle_ignore_changes_value" {
@@ -37,7 +37,7 @@ resource "aws_ssm_parameter" "cloudwatch_webhook_Zifecycle_ignore_changes_value"
   type      = "SecureString"
   value     = var.msteams_webhook_cloudwatch_alarm
   key_id    = "alias/aws/ssm"
-  overwrite = var.overwrite_msteams_webhook_cloudwatch_alarm
+  overwrite = true
 
   lifecycle {
     ignore_changes = [value]
