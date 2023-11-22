@@ -63,8 +63,8 @@ data "aws_iam_policy_document" "ssm_policy" {
       "ssm:getparameters",
     ]
     resources = [
-      aws_ssm_parameter.budget_webhook.arn,
-      aws_ssm_parameter.cloudwatch_webhook.arn
+      local.ssm_budget_webhook_arn,
+      local.ssm_cloudwatch_webhook_arn
     ]
   }
 }
