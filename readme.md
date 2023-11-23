@@ -16,13 +16,13 @@ resource "random_pet" "this" {
 }
 
 module "alarm_module" {
-  source                                     = "../../"
-  prefix                                     = random_pet.this.id
-  msteams_webhook_budget_alarm               = var.MS_TEAMS_WEB_HOOK
-  msteams_webhook_cloudwatch_alarm           = var.MS_TEAMS_WEB_HOOK
-  cloudwatch_retention_in_days               = 7
-  overwrite_msteams_webhook_budget_alarm     = true
-  overwrite_msteams_webhook_cloudwatch_alarm = true
+  source                                                        = "../../"
+  prefix                                                        = random_pet.this.id
+  msteams_webhook_budget_alarm                                  = var.MS_TEAMS_WEB_HOOK
+  msteams_webhook_cloudwatch_alarm                              = var.MS_TEAMS_WEB_HOOK
+  cloudwatch_retention_in_days                                  = 7
+  msteams_webhook_cloudwatch_ssm_lifecycle_ignore_changes_value = true
+  msteams_webhook_budget_ssm_lifecycle_ignore_changes_value     = true
 }
 
 resource "aws_budgets_budget" "budget" {

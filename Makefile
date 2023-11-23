@@ -37,3 +37,9 @@ ${VERBOSE}.SILENT: \
 	config \
 	dependencies \
 	deploy \
+
+# ==============================================================================
+
+terraform-docs:
+	terraform-docs .
+	cd examples/simple && terraform-docs .
