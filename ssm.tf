@@ -1,7 +1,7 @@
 # The only way to control lifecycle through input parameters is through count
 resource "aws_ssm_parameter" "budget_webhook" {
   count     = var.msteams_webhook_budget_ssm_lifecycle_ignore_changes_value ? 0 : 1
-  name      = "/${var.prefix}/msteams/budget-webhook-manual-update"
+  name      = "/${var.prefix}/msteams/budget-webhook"
   type      = "SecureString"
   value     = var.msteams_webhook_budget_alarm
   key_id    = "alias/aws/ssm"
@@ -10,7 +10,7 @@ resource "aws_ssm_parameter" "budget_webhook" {
 
 resource "aws_ssm_parameter" "budget_webhook_lifecycle_ignore_changes_value" {
   count     = var.msteams_webhook_budget_ssm_lifecycle_ignore_changes_value ? 1 : 0
-  name      = "/${var.prefix}/msteams/budget-webhook"
+  name      = "/${var.prefix}/msteams/budget-webhook-manual-update"
   type      = "SecureString"
   value     = var.msteams_webhook_budget_alarm
   key_id    = "alias/aws/ssm"
@@ -24,7 +24,7 @@ resource "aws_ssm_parameter" "budget_webhook_lifecycle_ignore_changes_value" {
 # The only way to control lifecycle through input parameters is through count
 resource "aws_ssm_parameter" "cloudwatch_webhook" {
   count     = var.msteams_webhook_cloudwatch_ssm_lifecycle_ignore_changes_value ? 0 : 1
-  name      = "/${var.prefix}/msteams/cloudwatch-webhook-manual-update"
+  name      = "/${var.prefix}/msteams/cloudwatch-webhook"
   type      = "SecureString"
   value     = var.msteams_webhook_cloudwatch_alarm
   key_id    = "alias/aws/ssm"
@@ -33,7 +33,7 @@ resource "aws_ssm_parameter" "cloudwatch_webhook" {
 
 resource "aws_ssm_parameter" "cloudwatch_webhook_lifecycle_ignore_changes_value" {
   count     = var.msteams_webhook_cloudwatch_ssm_lifecycle_ignore_changes_value ? 1 : 0
-  name      = "/${var.prefix}/msteams/cloudwatch-webhook"
+  name      = "/${var.prefix}/msteams/cloudwatch-webhook-manual-update"
   type      = "SecureString"
   value     = var.msteams_webhook_cloudwatch_alarm
   key_id    = "alias/aws/ssm"
