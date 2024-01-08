@@ -42,3 +42,8 @@ variable "msteams_webhook_budget_ssm_lifecycle_ignore_changes_value" {
   type        = bool
   description = "True to set the lifecycle {ignore = [value]}, e.i. the ssm parameter will not be overwritten on deploy"
 }
+
+variable "msteams_activity_subtitle" {
+  type        = string
+  description = "Subtitle on the posts that will be sent to MS Teams"
+}

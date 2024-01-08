@@ -13,6 +13,7 @@ budget_sns_topic_arn = os.environ["BUDGET_SNS_TOPIC_ARN"]
 budget_webhook_ssm_name = os.environ["BUDGET_WEBHOOK_SSM_NAME"]
 cloudwatch_sns_topic_arn = os.environ["CLOUDWATCH_SNS_TOPIC_ARN"]
 cloudwatch_webhook_ssm_name = os.environ["CLOUDWATCH_WEBHOOK_SSM_NAME"]
+msteams_activity_subtitle = os.environ["MSTEAMS_ACTIVITY_SUBTITLE"]
 
 
 client = boto3.client("ssm")
@@ -60,7 +61,7 @@ class MsTeams(SNSApplication):
             "sections": [
                 {
                     "activityTitle": subject,
-                    "activitySubtitle": "Notify a Patient",
+                    "activitySubtitle": msteams_activity_subtitle,
                     "facts": [
                         {"name": "status", "value": "\U0001F534"},
                         {"name": "reason", "value": message},
@@ -95,7 +96,7 @@ class MsTeams(SNSApplication):
             "sections": [
                 {
                     "activityTitle": alarm_name,
-                    "activitySubtitle": "Notify a Patient",
+                    "activitySubtitle": msteams_activity_subtitle,
                     "facts": [
                         {"name": "new status", "value": state_colour[new_state.lower()]},
                         {"name": "old status", "value": state_colour[old_state.lower()]},

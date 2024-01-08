@@ -46,6 +46,7 @@ resource "aws_lambda_function" "lambda_function" {
       CLOUDWATCH_SNS_TOPIC_ARN    = aws_sns_topic.cloudwatch_alarm_topic.arn
       BUDGET_WEBHOOK_SSM_NAME     = local.ssm_budget_webhook_name
       CLOUDWATCH_WEBHOOK_SSM_NAME = local.ssm_cloudwatch_webhook_name
+      MSTEAMS_ACTIVITY_SUBTITLE   = var.msteams_activity_subtitle
     }
   }
 
