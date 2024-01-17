@@ -45,5 +45,6 @@ variable "msteams_webhook_budget_ssm_lifecycle_ignore_changes_value" {
 
 variable "msteams_activity_subtitle" {
   type        = string
+  default = ""
   description = "Subtitle on the posts that will be sent to MS Teams"
 }
