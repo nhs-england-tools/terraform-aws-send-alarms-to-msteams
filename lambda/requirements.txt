@@ -1,4 +1,4 @@
-aws-lambda-powertools==2.27.1
+aws-lambda-powertools==2.32.0
 boto3==1.29.5
 spine-aws-common==0.2.14
 requests==2.31.0
