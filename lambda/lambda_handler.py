@@ -85,7 +85,8 @@ class MsTeams(SNSApplication):
         new_state = message["NewStateValue"]
         reason = message["NewStateReason"]
 
-        state_colour = {"alarm": "\U0001F534", "ok": "\U0001F7E2"}  # Red Circle `` # Green Circle
+        state_colour = {"alarm": "\U0001F534", "ok": "\U0001F7E2", "insufficient_data": "\u26AA"}  # Red Circle, Green Circle, White Circle
+        default_colour = "\u26AA"  # White Circle as default
 
         card = {
             "@type": "MessageCard",
@@ -95,10 +96,9 @@ class MsTeams(SNSApplication):
             "sections": [
                 {
                     "activityTitle": alarm_name,
-                    "activitySubtitle": "Notify a Patient",
                     "facts": [
-                        {"name": "new status", "value": state_colour[new_state.lower()]},
-                        {"name": "old status", "value": state_colour[old_state.lower()]},
+                        {"name": "new status", "value": state_colour.get(new_state.lower(), default_colour)},
+                        {"name": "old status", "value": state_colour.get(old_state.lower(), default_colour)},
                         {"name": "reason", "value": reason},
                     ],
                     "markdown": True,
