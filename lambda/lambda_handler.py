@@ -60,7 +60,6 @@ class MsTeams(SNSApplication):
             "sections": [
                 {
                     "activityTitle": subject,
-                    "activitySubtitle": "Notify a Patient",
                     "facts": [
                         {"name": "status", "value": "\U0001F534"},
                         {"name": "reason", "value": message},
