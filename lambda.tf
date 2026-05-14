@@ -25,7 +25,7 @@ resource "aws_lambda_layer_version" "python_dependencies_layer" {
   layer_name          = "${var.prefix}-msteams-layer"
   filename            = data.archive_file.layer.output_path
   source_code_hash    = data.archive_file.layer.output_base64sha256
-  compatible_runtimes = ["python3.14", "python3.9", "python3.8", "python3.7"]
+  compatible_runtimes = ["python3.14", "python3.9"]
 }
 
 resource "aws_lambda_function" "lambda_function" {
